@@ -255,11 +255,29 @@
   z-index: 20;
 }
 
-.header-toolbar button.popout-open {
-  -webkit-transform: translate(0, 65px);
+
+.header-toolbar button.popout-open span{
+  background-image: none!important;
+}
+
+.header-toolbar button.popout-open span:before{
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNiIgaGVpZ2h0PSIyNiI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxwYXRoIGQ9Ik0xIDFoMjR2MjRIMSIvPgogICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE1IDE1VjZoLTR2OWgtLjUwODk5NDgyQzEwLjIyNzg4MDQ4IDE1IDEwIDE1LjIyMzg1NzYgMTAgMTUuNWMwIC4yNjgwNjY0LjIxOTgzMDUuNS40OTEwMDUxOC41aDUuMDE3OTg5NjRDMTUuNzcyMTE5NTIgMTYgMTYgMTUuNzc2MTQyNCAxNiAxNS41YzAtLjI2ODA2NjQtLjIxOTgzMDUtLjUtLjQ5MTAwNTE4LS41SDE1em0yLTloMVY0SDh2MmgxdjhsLTIgMnYyaDUuMnY0aDEuNnYtNEgxOXYtMmwtMi0yVjZ6Ii8+CiAgPC9nPgo8L3N2Zz4=");
+  animation: pin-icon 500ms cubic-bezier(.3, .3, 0, 1);
   transform: translate(0, 65px);
-  transition: all 500ms cubic-bezier(.3, .3, 0, 1);
-  -webkit-transition: all 500ms cubic-bezier(.3, .3, 0, 1);
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+@keyframes pin-icon{
+  from{
+    transform: translate(0, 0);
+  }to{
+    transform: translate(0, 65px);
+  }
 }
 
 .header-toolbar button {
@@ -2329,6 +2347,7 @@ div[class*="modal-"] div[class*="header-"] + div[class*="scrollerWrap-"] {
   border-radius: 0;
   padding-top: 5px;
 }
+
 
 /* Selfish part xD */
 /*
