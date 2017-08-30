@@ -250,6 +250,10 @@
   }
 }
 
+.header-toolbar .private-channel-call-btns-wrapper {
+  display: flex;
+}
+
 .header-toolbar button.popout-open span, .header-toolbar button.active {
   opacity: 1;
   z-index: 20;
@@ -270,6 +274,10 @@
   transform: translate(0, 65px);
   margin-top: 2px;
   margin-left: 2px;
+}
+
+.header-toolbar button.popout-open span[style*='567632a2702aed0296e15d68d6cae738.svg']:before {
+  background-image: url("/assets/567632a2702aed0296e15d68d6cae738.svg");
 }
 
 @keyframes pin-icon{
