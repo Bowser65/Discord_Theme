@@ -418,15 +418,15 @@ div[class*="channelTextAreaEnabledNoAttach"] {
   .btn-settings:hover::after, .account .btn-settings::after { background-image: url('https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_build_white_24px.svg'); }
 }
 
-// Friends section (needs optimization: makes settings panel laggy - Sometimes not laggy (like when in Gift Inventory)
+// Friends section
 div[class*='privateChannels-'] {
   overflow-x: visible;
 
   header {
     font-size: 13px;
     letter-spacing: 1px;
-    text-transform: none;
     padding-left: 10px;
+    text-transform: none;
   }
 
   div[class*='scroller-'] {
@@ -439,25 +439,21 @@ div[class*='privateChannels-'] {
   }
 
   @for $i from 1 through 5 {
-    div[class*='channel-']:nth-child(#{$i}):not([style*="height: 42px;"]) {
+    div[class*='channel-']:nth-child(#{$i}) {
       display: inline-block;
       overflow: visible;
       position: relative;
       width: 25%;
 
-      div[class*="wrapper-"] {
-        background: var(--notif);
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-
       a[href="/activity"], a[href="/library"], a[href="/store"], a[href="/channels/@me"] {
+        display: flex;
+        justify-content: center;
+
         &:hover div[class^='name'] {
           @include animation(tooltip-bottom-anim 200ms ease-in-out);
-          background-color: #000;
+          background: var(--dark-highlight);
           border-radius: 5px;
-          box-shadow: 0 0 5px rgba(0, 0, 0, .9);
+          box-shadow: 0 0 5px var(--dark-highlight);
           color: #fff;
           display: block;
           font-size: 14px;
@@ -469,16 +465,22 @@ div[class*='privateChannels-'] {
           top: 105%;
           z-index: 1002;
         }
-      }
 
-      div[class*='name'] { display: none; }
-      svg { margin: 0; }
-      a { display: flex; justify-content: center; }
+        div[class^='name'] { display: none; }
+        svg { margin: 0; }
+      }
     }
   }
 
+  // this is not ideal, but works well
+  header,
+  header + div[class*='channel-'],
+  header + div[class*='channel-'] + div[class*='channel-'] {
+    display: block !important;
+    width: 100% !important;
+  }
 }
-// END (needs optimization)
+// END
 
 .theme-dark div[class*="videoHeight-"] { // scss-lint:disable MergeableSelector
   background-color: var(--dark-highlight);
@@ -510,8 +512,8 @@ div[class*="privateChannels-"] {
   div[class*="wrapper-"] { background-color: var(--notif); }
 
   & + div[class*="container-2"] {
-    height: 51px;
     border-top: $border-bottom-row;
+    height: 51px;
   }
 
   & + div[class*="container-1"] {
@@ -552,8 +554,8 @@ div[class*="privateChannels-"] {
       transition: all 200ms ease;
 
       &:hover {
-        padding-left: 15px;
         background: var(--dark-secondary);
+        padding-left: 15px;
       }
     }
   }
@@ -562,22 +564,6 @@ div[class*="privateChannels-"] {
     background: var(--dark-secondary);
     .icon-friends { background-color: transparent; }
     &::before { border-left: 2px solid var(--accent); }
-  }
-}
-
-div[class*="container-"] div[class*="headerBar-"] {
-  background: var(--dark-secondary);
-
-  div[class*="itemDefault-"] {
-    color: #fff;
-    transition: all 250ms ease;
-
-    &:hover { background: var(--dark-primary) !important; }
-  }
-
-  div[class*="itemSelected-"] {
-    background: var(--accent);
-    color: #fff;
   }
 }
 
@@ -693,6 +679,22 @@ div[class*="container-"] div[class*="headerBar-"] {
 
 // Channel section
 div[class*="container-"] {
+  div[class*="headerBar-"] {
+    background: var(--dark-secondary);
+
+    div[class*="itemDefault-"] {
+      color: #fff;
+      transition: all 250ms ease;
+
+      &:hover { background: var(--dark-primary) !important; }
+    }
+
+    div[class*="itemSelected-"] {
+      background: var(--accent);
+      color: #fff;
+    }
+  }
+
   header[class*="header-"] {
     border-radius: 0;
     box-shadow: 0 2px 0 rgba(0, 0, 0, .2), 0 3px 0 rgba(0, 0, 0, .06);
@@ -899,8 +901,8 @@ div[class*="base-"] { border-radius: 0; }
   div[class*="unreadMentionsIndicatorBottom-"] { bottom: 53px; }
 
   div[class*="guilds-"] {
-    position: relative;
     margin-bottom: 53px;
+    position: relative;
 
     // Friends icon was replaced with Hub channel at Canary, remove later
     a[href="/activity"], a[href*="/store"], a[href*="/library"], a[href*="/channels/@me"] {
@@ -917,7 +919,7 @@ div[class*="base-"] { border-radius: 0; }
       background-size: 100% 100%;
       border-radius: 50%;
       height: 100%;
-      width: 100%
+      width: 100%;
     }
 
     div[class*="guild-"] {

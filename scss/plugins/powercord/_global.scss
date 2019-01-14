@@ -1,0 +1,27 @@
+// Spotify modal
+.powercord-spotify {
+  background-color: transparent;
+  margin-bottom: 0;
+  z-index: 2 !important;
+
+  + div[class*=container-2] {
+    border-top: 1px solid #454545;
+  }
+}
+
+// Powercord update
+.powercord-toast {
+  background-color: var(--dark-primary) !important;
+
+  .button {
+    background-color: var(--dark-secondary) !important;
+  }
+}
+
+// Powercord account & plugins
+.pc-appMount .pc-app .powercord-account,
+.pc-appMount .pc-app .powercord-plugin {
+  background-color: var(--dark-highlight);
+  border: 0;
+  border-radius: 0;
+}

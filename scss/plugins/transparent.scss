@@ -1,10 +1,14 @@
+@import 'powercord/transparent';
+
 :root {
   --transparent-highlight: rgba(0, 0, 0, .6);
   --transparent-primary: rgba(0, 0, 0, .4);
   --transparent-secondary: rgba(0, 0, 0, .2);
 }
 
-div[class*="appMount-"] { background: transparent; }
+#app-mount div[class*="titleBar-"] {
+  background: rgba(0, 0, 0, .9);
+}
 
 .theme-dark {
   // User account
@@ -25,11 +29,11 @@ div[class*="appMount-"] { background: transparent; }
   }
 
   div[class*="activityFeed-"] {
-    background: var(--transparent-secondary);
+    background: transparent;
   }
 
   div[class*="friendsTable-"] {
-    background: var(--transparent-secondary);
+    background: transparent;
 
     div[class*="headerBar-"], .friends-table, div[class*="scrollerWrap-"] {
       background: transparent;
@@ -38,12 +42,14 @@ div[class*="appMount-"] { background: transparent; }
     .friends-empty div[class*="wrapper-"] { background: transparent; }
   }
 
-  div[class*="container-"] div[class*="headerBar-"] {
-    background: var(--transparent-secondary);
-  }
-
-  div[class*="homeWrapper-"], div[class*="gameLibrary-"], div[class*="applicationStore-"], div[class*="activityFeed-"] {
-    div[class*="headerBar-"] { background: transparent; }
+  div[class^="root-"],
+  div[class*="channels-"] + div[class*="root-"],
+  div[class*="container-"],
+  div[class*="homeWrapper-"],
+  div[class*="gameLibrary-"],
+  div[class*="applicationStore"],
+  div[class*="activityFeed-"] {
+    div[class*="headerBar-"] { background: var(--transparent-secondary); }
   }
 
   div[class*="chat-"] form div[class*="typing-"],
@@ -107,11 +113,6 @@ div[class*="appMount-"] { background: transparent; }
     }
   }
 
-  div[class*="channels-"] + div[class*="root-"] {
-    background: var(--transparent-secondary);
-    div[class*="headerBar-"] { background: transparent; }
-  }
-
   // Game store
   div[class*="libraryHeader-"] { background: var(--transparent-secondary); }
   div[class*="gameLibrary-"] {
@@ -122,7 +123,7 @@ div[class*="appMount-"] { background: transparent; }
     div[class*="rowWrapperActive-"] { background-color: var(--transparent-primary); }
   }
 
-  div[class*="applicationStore-"] {
+  div[class*="applicationStore"] {
     background: transparent;
 
     div[class*="tileWrapper-"] {
