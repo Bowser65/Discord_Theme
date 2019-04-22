@@ -1,0 +1,8 @@
+{
+  "name": "Discord Theme",
+  "description": "A nice, dark and clean theme",
+  "version": "1.6.3",
+  "author": "AlexFlipnote",
+  "license": "GPL-3.0",
+  "theme": "scss/theme.scss"
+}
