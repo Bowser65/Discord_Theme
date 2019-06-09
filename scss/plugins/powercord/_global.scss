@@ -1,3 +1,10 @@
+// Hidden guilds list
+html body .pc-wrapper .powercord-guilds .pc-listItem.pc-guild {
+  position: initial !important;
+  height: initial;
+  border-top: none;
+}
+
 // Spotify modal
 .powercord-spotify {
   background-color: transparent;
