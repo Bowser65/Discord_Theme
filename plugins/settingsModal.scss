@@ -1,0 +1,180 @@
+$user-icons: (
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036545574633472/settings_account.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037131821154304/settings_security.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036592182001665/settings_apps.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036715058331658/settings_connections.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036656832872516/settings_billing.svg',
+        '',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037019132526602/settings_nitro.svg',
+        'https://canary.discordapp.com/assets/3a050fcc884255231b99b7033c776070.svg',
+        '',
+        '',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037177870155777/settings_voice.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037075013500939/settings_overlay.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037042738200701/settings_notifications.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036876735905809/settings_keybinds.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036809757065236/settings_games.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036562595381263/settings_activity.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036936593080320/settings_library.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036832251379721/settings_image.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037109058666535/settings_roles.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037146736099338/settings_streamer.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036909669580800/settings_language.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037061860163603/settings_os.svg',
+        '',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036984135385131/settings_logs.svg',
+        '',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036962706817035/settings_logout.svg'
+);
+
+$server-icons: (
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037090527969290/settings_overview.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037004054265857/settings_moderation.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036984135385131/settings_logs.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037109058666535/settings_roles.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036715058331658/settings_connections.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036759970676756/settings_emoji.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037195696209921/settings_webhooks.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037215732269058/settings_widgets.svg'
+);
+
+$server-icons2: (
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036741545361408/settings_delete.svg',
+        '',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036623958048794/settings_ban.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036854632185867/settings_invites.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036545574633472/settings_account.svg',
+        '',
+        '',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036688349003776/settings_boost.svg',
+        '',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591037163504795652/settings_vanity.svg',
+        'https://cdn.discordapp.com/attachments/469030745692962836/591036788542275601/settings_explore.svg'
+);
+
+div[class^="layers-"] {
+  // Main chat
+  div[class^="layer-"]:first-child {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  // Settings
+  > div[class^="layer-"] + div[class^="layer-"] {
+    background-color: var(--transparent-primary);
+    margin-top: 0;
+    z-index: 666;
+
+    div[class^="standardSidebarView-"] {
+      background-color: var(--dark-secondary);
+      height: 780px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 960px;
+    }
+
+    div[class^="sidebarRegion-"] {
+      background-color: var(--dark-primary);
+
+      div[class^="scroller-"]::-webkit-scrollbar {
+        display: none;
+      }
+
+      div[class^="sidebar-"] {
+        padding: 15px 0 15px 15px;
+        width: 75px;
+      }
+
+      div[class^="header-"] {
+        display: none;
+      }
+
+      div[class^="separator-"] {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+
+      div[class^="item-"] {
+        font-size: 0;
+        line-height: 0;
+      }
+
+      div[class^="item-"]::before {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: '';
+        display: block;
+        height: 24px;
+        width: 24px;
+      }
+    }
+
+    &[aria-label="USER_SETTINGS"] {
+      $i: 2;
+      @each $icon in $user-icons {
+        div[class^="item-"]:nth-child(#{$i})::before {
+          background-image: url($icon);
+        }
+
+        $i: $i + 1;
+      }
+
+      div[class^="item-"]:nth-child(8)[style*="background"]::before {
+        background-image: url('https://canary.discordapp.com/assets/379d2b3171722ef8be494231234da5d1.svg');
+      }
+    }
+
+    &[aria-label="GUILD_SETTINGS"] {
+      $i: 1;
+      @each $icon in $server-icons2 {
+        div[class^="item-"]:nth-last-child(#{$i})::before {
+          background-image: url($icon);
+        }
+
+        $i: $i + 1;
+      }
+
+      $i: 2;
+      @each $icon in $server-icons {
+        div[class^="item-"]:nth-child(#{$i})::before {
+          background-image: url($icon);
+        }
+
+        $i: $i + 1;
+      }
+
+      div[class^="item-"]:nth-child(13)[style*="background"]::before {
+        background-image: url('https://cdn.discordapp.com/attachments/469030745692962836/591059427776266241/settings_boost_w.svg');
+      }
+    }
+
+    div[class^="contentColumn-"] {
+      max-width: none;
+    }
+
+    div[class^="toolsContainer-"] {
+      position: absolute;
+      right: -30px;
+      top: -45px;
+
+      div[role] {
+        border-color: transparent;
+
+        &:hover {
+          background-color: var(--dark-primary);
+        }
+
+        path + path {
+          fill: #f04747;
+        }
+      }
+
+      div[class^="keybind-"] {
+        display: none;
+      }
+    }
+  }
+}
